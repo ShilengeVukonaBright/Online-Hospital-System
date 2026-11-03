@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <title>CarePoint Hospital</title>
+</head>
+<body>
+    
+  <nav>
+    <div class="log">
+        <!-- logo for the hospital -->
+         <i class="fa-solid fa-square-plus"></i>
+         <h1>CarePoint Hospital</h1>
+    </div>
+
+    <!-- links for navigation -->
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
+      
+    <!--Buttons for login and register -->
+        <button id="login"><a href="login.html">Login</a></button>
+
+        <button id="Register"><a href="Register.html">Register</a></button>
+    
+    </div>
+  </nav>
+  
+  <main>
+    <Aside>
+       <h3>YOUR HEALTH , OUR PRIORITY</h3>
+       <h1>Healthcare made <br> easier.</h1>
+       <span>Book your hospital appointment online,<br> choose a suitable time, and plan your visit.</span>
+       <button><a href="Register.html">Book An Appointment<i class="fa-solid fa-angle-right"></i></a></button><br>
+       <span class="note2">Already have an account? <a href="login.html">Login</a></span>
+    </Aside>
+    
+    <section>
+  
+  
+        <i class="fa-solid fa-circle"></i>
+        <i class="fa-solid fa-square-plus"></i>
+        <p>Your care starts here</p>
+    </section>
+  </main>
+  <footer>
+    <h1>How can we help you?</h1>
+    <p>Simple steps to organise your hospital visit.</p>
+    <div class="opp">
+        <div class="Book">
+          <span>CAL</span>
+          <h2>Book a Visit</h2>
+          <a href="#">Choose a Date and time.</a>
+        </div>
+        <div class="Manage">
+            <span>LIST</span>
+            <h2>Manage Bookings</h2>
+            <a href="#">View your appointments.</a>
+        </div>
+        <div class="priva">
+            <span>SAFE</span>
+            <h2>Privacy First</h2>
+            <a href="#">Your information matters</a>
+
+        </div>
+    </div>
+  </footer>
+
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        font-family:'poppins', sans-serif;
+    }
+    body{
+        background:white;
+    }
+    nav{
+        display: flex;
+        justify-content: space-between;
+        background: #F8FAFC;
+        padding: 10px 20px;
+    }
+    .log{
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 20px;
+    }
+    .fa-square-plus{
+        color:#2563EB;
+        font-size: 40px;
+    }
+    .nav-links{
+        display:flex;
+        justify-content: space-between;
+        gap: 20px;
+        left: 20px;
+        margin-top: 20px;
+    }
+    .nav-links button{
+        left: 120px;
+        height: 30px;
+        
+
+    }
+    
+    .nav-links a{
+        color:#64748B;
+        text-decoration: none;
+        gap: 20px;
+    }
+    .nav-links a:hover{
+        color:#2563EB;
+        text-decoration: underline;
+    }
+    button a{
+        text-decoration: none;
+        color: black;
+    }
+    #login a{
+        color: #2563EB;
+        font-weight: bold;
+        text-decoration: none;
+    }
+    
+    button#login{
+        border: 2px solid #2563EB;
+        border-radius: 5px;
+        padding: 5px 10px;
+    
+    }    
+    button#login:hover{
+        background:rgba(0,0,100,0.9);
+        a{
+            color: white;
+        }
+        border:none;
+    }
+    button#Register{
+        background: #2563EB;
+        font-weight: bold;
+        border:none;
+        border-radius: 5px;
+        padding: 5px 10px;
+        
+    }
+    button#Register:hover{
+        background:rgba(0,0,100,0.9);
+    }
+    #Register a{
+        color: white;
+        text-decoration: none;
+    }
+    main{
+        background:#EFF6FF;
+        display:grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+    Aside{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 10px;
+        align-self: center;
+        padding: 20px;
+
+        h3{
+            color:#2563EB;
+            margin-top:50px;
+            font-size: 0.9rem;
+            margin-left:70px;
+        }
+        h1{
+            margin-left: 70px;
+            margin-top: 10px;
+        }
+        span{
+            color:#64748B;
+            margin-left: 70px;
+            margin-top: 10px;
+        }
+        button{
+            cursor: pointer;
+            display:center;
+            margin-left: 70px;
+            background: #2563EB;
+            border:none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 10px;
+            
+        }
+        button:hover{
+            background:rgba(0,0,100,0.9);
+        }
+        button a{
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            
+        }
+        span.note2{
+            margin-top: 1px;
+            margin-left: 70px;
+            color:#2563EB;
+        }
+        span.note2 a{
+            cursor: pointer;
+        }
+    }
+    section{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background:#DBEAFE;
+        margin: 10px 100px;
+        padding: 6px;
+        border-radius:12px;
+        position: relative;
+
+        .fa-circle{
+            color:white;
+            font-size: 8rem;
+            position:relative;
+            z-index: 8;
+            top:-30px;
+            padding: 10px;
+        }
+        .fa-square-plus{
+            position: absolute;
+            font-size: 8rem;
+            z-index: 9;
+            margin-top: 120px;
+            top:-5px;
+            padding: 10px;
+
+        }
+        p{
+            padding:10px;
+            margin-top: 20px;
+            position: absolute;
+            margin-top: 250px;
+            font-size: 1.5rem;
+            color:blue;
+            bottom:1px;
+            font-weight: bold;
+        }
+
+        
+    }
+    footer{
+        h2{
+            font-size: 1.2rem;
+        }
+        a{
+            color:#64748B;
+        }
+        a:hover{
+            color:#2563EB;
+        }
+        h1{
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2rem;
+        }
+        p{
+            text-align: center;
+            margin-top: 10px;
+            color:#64748B;
+            font-size: 0.9rem;
+        }
+        span{
+             
+            padding: 10px;
+            display:block;
+            flex-direction: column;
+            justify-content: center;
+            color:#2563EB;
+            font-weight: bold;
+            font-size:0.8rem;
+        }
+        .opp{
+            display:grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            padding: 20px;
+            gap: 10px;
+        
+        }
+        .Book{
+            border:2px solid #E2E8F0;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0px 5px 10px rgba(0,0,0,0.6);
+            
+        }
+        .Manage{
+             border:2px solid #E2E8F0;
+             display: flex;
+            flex-direction: column;
+            text-align: center;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0px 5px 10px rgba(0,0,0,0.6);
+
+        }
+        .priva{
+             border:2px solid #E2E8F0;
+             display: flex;
+            flex-direction: column;
+            text-align: center;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0px 5px 10px rgba(0,0,0,0.6);
+             
+        }
+    }
+
+</style>
+    
+</body>
+</html>
