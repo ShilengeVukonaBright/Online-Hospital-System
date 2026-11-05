@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>Login Page</title>
+</head>
+<body>
+    <nav>
+        <h1>Welcome Back</h1>
+    </nav>
+    <main>
+        <h2>Login to manage your hostipal appointments.</h2>
+
+        <form>
+            <label for="EmailAddress">Email Address </label><br>
+            <input type="email" name="email" id="email" placeholder="Enter your email " required><br><br>
+            <label for="Password">Password</label><br>
+            <input type="password" name="Password" id="Password" placeholder="Enter your password" required><br><br>
+
+            <button>Login</button>
+
+        </form>
+    </main>
+    <footer>
+        <div class="forgotpass">
+            <h1>Forgot password?</h1>
+            <span><a href="#">Use a secure password reset process</a></span>
+
+        </div>
+    </footer>
+
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+            font-family: 'Poppins',sans-serif;
+
+        }
+        nav{
+             background:#DBEAFE;
+             line-height: 80px;
+            h1{
+                margin-left: 40px;
+                font-size: 1.5rem;
+            }
+        }
+        main{
+            h2{
+                 color:#64748B;
+                 margin-left: 12px;
+                 margin: 30px;
+                 font-size: 1rem;
+            }
+            form{
+                margin-left: 30px;
+                margin-top: 40px;
+            }
+            label{
+                color: black;
+                font-weight: 600;
+            
+            }
+            input{
+                width: 400px;
+                height: 35px;
+                border-radius:5px;
+                border: 1px solid #64748B;
+                padding-left:10px ;
+                
+            }
+            
+            
+            button{
+                width:300px ;
+                margin-top: 10px;
+                padding: 8px 10px;
+                background:#2563EB; 
+                border: none;
+                border-radius: 3px;
+                color: white;
+                font-weight: bold;
+                font-size: 1rem;
+            }
+            button:hover{
+                background:rgba(0,0,100,0.9);
+                cursor: pointer;
+            }
+            
+        }
+        footer{
+            margin-top: 60px;
+            .forgotpass{
+                background:#E2E8F0;
+                margin: 20px;
+                box-shadow: inset 3px 2px 3px rgba(0,0,0,0.4);
+                border-radius: 5px;
+                padding: 12px;
+                h1{
+                    font-size: 1.2rem;
+                    font-weight: 500;
+                    margin-bottom: 10px;
+                }
+                span{
+                    margin:2px;
+                }
+                a{
+                    color:#64748B;
+                    text-decoration: none;
+                }
+            }
+        }
+    </style>
+    
+</body>
+</html>

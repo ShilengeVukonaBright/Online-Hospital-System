@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Book Appointment</title>
+</head>
+<body>
+    <nav>
+        <h1>Book an Appointment</h1>
+    </nav>
+    <main>
+        <h2>Choose an available service.date and time</h2>
+
+        <form>
+            <label for="Department">Department or Service</label><br>
+            <input type="search" name="Department" placeholder="Select a Department"><br><br>
+            <label for="Doctor">Doctor (optional)</label><br>
+            <input type="text" name="Doctor" id="Doctor" placeholder="Select a Doctor"><br><br>
+            <label for="Appointment">Appointment date</label><br>
+            <input type="date" name="Appointment" id="datetime" required placeholder="Choose an available date"><br><br>
+            <label for="Available">Available time</label><br>
+            <input type="time" name="Available" id="time" required placeholder="Select a time slot">
+
+        </form>
+
+        <button><a href="/BookingConfrimation.html">Confirm Booking</a></button>
+    </main>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'poppins',sans-serif;
+
+        }
+        nav{
+            background:#EFF6FF;
+            line-height:70px;
+            h1{
+                margin-left: 16px;
+                font-size: 1.3rem;
+            }
+
+        }
+        main{
+            h2{
+               color:#64748B;
+               font-size: 1rem;
+               margin: 20px;
+               margin-top:27px ;
+               font-weight: 400;
+            }
+            form{
+                margin-left: 20px;
+                margin-top: 27px;
+            }
+            input{
+                width: 450px;
+                height: 35px;
+                padding-left: 12px;
+                border: 1px solid #64748B;
+                border-radius: 5px;
+            }
+            label{
+                font-weight: bold;
+            }
+        }
+        button a{
+            text-decoration: none;
+            font-weight: bold;
+            color: white;
+        }
+        button{
+            width: 360px;
+            margin-top: 40px;
+            margin-left: 18px;
+            padding: 14px;
+            background:#2563EB; 
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        button:hover{
+            background:rgba(0,0,100,0.9);
+
+        }
+    </style>
+</body>
+</html>
