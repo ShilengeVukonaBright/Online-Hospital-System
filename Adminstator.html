@@ -3,9 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=8, initial-scale=1.0">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <title>Adminstator Page</title>
 </head>
 <body>
+    <nav>
+        <h1>Administrator Dashboard</h1>
+    </nav>
+    <main>
+        <h2>Manage schedules and patient bookings</h2>
+
+        <div class="container">
+            <div class="one">
+                <h3>Today's booking</h3>
+                <span>Details and Status</span>
+            </div>
+            <div class="two">
+                <h3>Available slots</h3>
+                <span>Details and Status</span>
+            </div>
+            <div class="three">
+                <h3>Pending updates</h3>
+                <span>Details and status</span>
+            </div>
+            <div class="four">
+                <h3>Booking list
+                
+                </h3>
+                <span><p class="patient">Patient</p> <p class="Date"></p><p class="time">Time</p><p class="Department">Department</p><p class="status">Status</p></span>
+            </div>
+            <div class="five">
+                <h3>Schedule Management</h3>
+                <span><p class="addSlot">Add Slot</p><p class="EditSLot">Edit Slot</p><p class="Availabily">Mark unavailable</p></span>
+            </div>
+        </div>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: 'Poppins',sans-serif;
+            }
+            nav{
+                 background:#DBEAFE;
+                 line-height: 60px;
+                 h1{
+                    margin-left: 20px;
+                    font-size: 1.4rem;
+                 }
+            }
+             main{
+                h2{
+                  color:#64748B;
+                  margin-left: 12px;
+                  margin: 30px;
+                  font-size: 1rem;
+                  
+                }
+                h3{
+                    font-size: 1rem;
+
+                }
+                span{
+                    color:#64748B;
+                    font-size: 0.8rem;
+                }
+                .container{
+                    display: grid;
+                    grid-template-columns: 1fr(400px);
+                    gap: 40px;
+                    grid-template-areas: 
+                    'A B C'
+                    'D D D'
+                    'E E E';
+                    padding: 30px;
+                    cursor: pointer;
+                }
+                .one{
+                    grid-area: A;
+                    background:#E2E8F0;
+                    padding: 15px;
+                    border-radius: 12px;
+                    border: 2px solid #64748B;
+
+                }
+                .two{
+                    grid-area: B;
+                    background:#E2E8F0;
+                     padding: 15px;
+                    border-radius: 12px;
+                    border: 2px solid #64748B;
+                }
+                .three{
+                    grid-area: C;
+                    background:#E2E8F0;
+                     padding: 15px;
+                    border-radius: 12px;
+                    border: 2px solid #64748B;
+                }
+                .four{
+                    grid-area: D;
+                    background:#E2E8F0;
+                     padding: 15px;
+                    border-radius: 12px;
+                    border: 2px solid #64748B;
+                }
+                .five{
+                    grid-area: E;
+                    background:#E2E8F0;
+                     padding: 15px;
+                    border-radius: 12px;
+                    border: 2px solid #64748B;
+                }
+            }
+            
+        </style>
+    </main>
     
 
 </body>

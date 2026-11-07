@@ -3,9 +3,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pa</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>Appointment page</title>
 </head>
 <body>
-    
+
+    <nav>
+        <h1>My Appointment</h1>
+    </nav>
+    <main>
+        <h2>View and manage your upcoming and previous bookings.</h2>
+        <div class="container">
+            <div class="first">
+                <h3>Upcoming</h3>
+                <span>Details and Status</span>
+            </div>
+            <div class="second">
+                <h3>Past</h3>
+                <span>Details and Status</span>
+            </div>
+            <div class="third">
+                <h3>Cancelled</h3>
+                <span>Details and Span</span>
+            </div>
+            <div class="fouth">
+                <h3>Routine Check-up</h3>
+                <span><p class="date">23 Nov 2026</p> <p class="time">10:30</p> <p class="status">Confirm</p></span>
+
+
+            </div>
+            <div class="firth">
+                <h3>Appointent Actions</h3>
+                <span>
+                   <p class="slot">Slot</p> <p class="editSlot">Edit Slot</p> <p class="Avaialable">Cancel</p>
+                </span>
+            </div>
+        </div>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: 'Poppins',sans-serif;
+
+            }
+            nav{
+                 background:#DBEAFE;
+                 line-height: 60px;
+                 h1{
+                    margin-left: 20px;
+                    font-size: 1.4rem;
+                 }
+            }
+            main{
+                h2{
+                  color:#64748B;
+                  margin-left: 12px;
+                  margin: 30px;
+                  font-size: 1rem;
+                }
+                .container{
+                    display: grid;
+                    grid-template-columns: 1fr(400px);
+                    gap: 50px;
+                    grid-template-areas: 
+                    'A B C'
+                    'D D D'
+                    'E E E';
+                    padding: 30px;
+                    cursor: pointer;
+                }
+                h3{
+                    font-size: 1rem;
+                }
+                span{
+                    color:#64748B;
+                    font-size: 0.8rem;
+                }
+                .first{
+                    grid-area: A;
+                    background:#E2E8F0;
+                    padding: 17px;
+                    border-radius: 12px;
+                    border:2px solid #64748B;
+                
+
+                }
+                .first:hover{
+                    border: 2px solid black;
+                    
+                }
+                .second{
+                    grid-area: B;
+                    background:#E2E8F0;
+                    padding: 17px;
+                     border-radius: 12px;
+                    border:2px solid #64748B;
+
+                }
+                .second:hover{
+                    border: 2px solid black;
+                }
+                .third{
+                    grid-area: C;
+                    background:#E2E8F0;
+                    padding: 17px;
+                     border-radius: 12px;
+                    border:2px solid #64748B;
+
+
+                }
+                .third:hover{
+                    border: 2px solid black;
+                }
+                .fouth{
+                    grid-area: D;
+                    background:#E2E8F0;
+                    padding: 15px;
+                     border-radius: 12px;
+                    border:2px solid #64748B;        
+
+                }
+                .fouth:hover{
+                    border: 2px solid black;
+                }
+                .firth{
+                    grid-area: E;
+                    background:#E2E8F0;
+                    padding: 15px;
+                     border-radius: 12px;
+                    border:2px solid #64748B;
+                }
+                .firth:hover{
+                    border: 2px solid black;
+                }
+
+            }
+        </style>
+    </main>
+
 </body>
 </html>

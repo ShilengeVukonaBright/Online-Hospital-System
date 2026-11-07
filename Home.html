@@ -3,340 +3,791 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta name="description" content="CarePoint Hospital makes it easier to plan your visit and find the care you need.">
+    <title>CarePoint Hospital | Patient Care, Made Easier</title>
+    <style>
+        :root {
+            color-scheme: light;
+            --blue: #2563eb;
+            --blue-dark: #1d4ed8;
+            --ink: #172554;
+            --muted: #64748b;
+            --pale: #eff6ff;
+            --line: #dbe5f1;
+            --white: #fff;
+            --page-width: 1120px;
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-    <title>CarePoint Hospital</title>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 88px;
+        }
+
+        body {
+            margin: 0;
+            color: var(--ink);
+            background: var(--white);
+            font-family: "Open Sans", "Segoe UI", Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        button,
+        input,
+        textarea {
+            font: inherit;
+        }
+
+        .container {
+            width: min(var(--page-width), calc(100% - 40px));
+            margin-inline: auto;
+        }
+
+        .site-header {
+            position: sticky;
+            z-index: 10;
+            top: 0;
+            background: rgba(255, 255, 255, 0.97);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .nav-wrap {
+            display: flex;
+            min-height: 76px;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--ink);
+            font-size: 1.15rem;
+            font-weight: 750;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .brand-mark {
+            display: grid;
+            width: 38px;
+            height: 38px;
+            place-items: center;
+            border-radius: 12px;
+            color: var(--white);
+            background: var(--blue);
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        .nav-toggle {
+            display: none;
+            padding: 8px 11px;
+            color: var(--ink);
+            background: var(--white);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .nav-links > a:not(.button) {
+            color: #475569;
+            font-size: 0.95rem;
+            text-decoration: none;
+        }
+
+        .nav-links > a:not(.button):hover,
+        .nav-links > a:not(.button):focus-visible {
+            color: var(--blue);
+        }
+
+        .button {
+            display: inline-flex;
+            min-height: 44px;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 18px;
+            border: 1px solid var(--blue);
+            border-radius: 8px;
+            color: var(--white);
+            background: var(--blue);
+            font-weight: 700;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 150ms ease, border-color 150ms ease, transform 150ms ease;
+        }
+
+        .button:hover,
+        .button:focus-visible {
+            border-color: var(--blue-dark);
+            background: var(--blue-dark);
+        }
+
+        .button:active {
+            transform: translateY(1px);
+        }
+
+        .button-outline {
+            color: var(--blue);
+            background: transparent;
+        }
+
+        .button-outline:hover,
+        .button-outline:focus-visible {
+            color: var(--white);
+        }
+
+        .hero {
+            overflow: hidden;
+            background: linear-gradient(115deg, #eff6ff 0%, #f8fbff 62%, #e0edff 100%);
+        }
+
+        .hero-grid {
+            display: grid;
+            min-height: 490px;
+            grid-template-columns: 1.15fr 0.85fr;
+            align-items: center;
+            gap: 48px;
+            padding-block: 70px;
+        }
+
+        .eyebrow {
+            margin: 0 0 12px;
+            color: var(--blue);
+            font-size: 0.8rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+        }
+
+        .hero h1 {
+            max-width: 650px;
+            margin: 0;
+            font-size: clamp(2.5rem, 5vw, 4.25rem);
+            letter-spacing: -0.045em;
+            line-height: 1.1;
+        }
+
+        .hero-copy {
+            max-width: 570px;
+            margin: 20px 0 26px;
+            color: var(--muted);
+            font-size: 1.08rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .login-note {
+            margin: 18px 0 0;
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        .login-note a {
+            color: var(--blue);
+            font-weight: 700;
+        }
+
+        .hero-card {
+            display: grid;
+            min-height: 300px;
+            place-items: center;
+            padding: 35px;
+            border: 1px solid #d5e5ff;
+            border-radius: 28px;
+            background: rgba(255, 255, 255, 0.72);
+            box-shadow: 0 24px 60px rgba(37, 99, 235, 0.12);
+            text-align: center;
+        }
+
+        .hero-symbol {
+            display: grid;
+            width: 150px;
+            height: 150px;
+            place-items: center;
+            border: 18px solid #dbeafe;
+            border-radius: 50%;
+            color: var(--blue);
+            background: var(--white);
+            font-size: 5.2rem;
+            font-weight: 300;
+            line-height: 1;
+        }
+
+        .hero-card p {
+            margin: 18px 0 0;
+            color: var(--blue-dark);
+            font-size: 1.1rem;
+            font-weight: 750;
+        }
+
+        section.content-section {
+            padding-block: 72px;
+        }
+
+        .section-heading {
+            max-width: 700px;
+            margin: 0 auto 34px;
+            text-align: center;
+        }
+
+        .section-heading h2 {
+            margin: 0 0 8px;
+            font-size: clamp(1.7rem, 3vw, 2.25rem);
+            letter-spacing: -0.025em;
+            line-height: 1.25;
+        }
+
+        .section-heading p {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        .feature-grid,
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            padding: 25px;
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            background: var(--white);
+            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.045);
+        }
+
+        .card-label {
+            display: inline-block;
+            margin-bottom: 12px;
+            color: var(--blue);
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+        }
+
+        .card h3 {
+            margin: 0 0 7px;
+            font-size: 1.1rem;
+        }
+
+        .card p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .card-link {
+            display: inline-block;
+            margin-top: 16px;
+            color: var(--blue);
+            font-size: 0.93rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .card-link:hover,
+        .card-link:focus-visible {
+            text-decoration: underline;
+        }
+
+        .services-section {
+            background: #f8fafc;
+        }
+
+        .service-number {
+            display: grid;
+            width: 42px;
+            height: 42px;
+            margin-bottom: 15px;
+            place-items: center;
+            border-radius: 12px;
+            color: var(--blue);
+            background: var(--pale);
+            font-size: 0.88rem;
+            font-weight: 800;
+        }
+
+        .about-panel {
+            padding: clamp(24px, 5vw, 45px);
+            border: 1px solid #d5e5ff;
+            border-radius: 18px;
+            background: var(--pale);
+        }
+
+        .about-panel h2 {
+            margin: 0 0 12px;
+            font-size: clamp(1.6rem, 3vw, 2rem);
+            line-height: 1.25;
+        }
+
+        .about-panel > p {
+            max-width: 850px;
+            margin: 0;
+            color: #475569;
+        }
+
+        .about-list {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+            margin: 28px 0 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .about-list h3 {
+            margin: 0 0 5px;
+            color: var(--blue-dark);
+            font-size: 1rem;
+        }
+
+        .about-list p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        .contact-section {
+            background: #f8fafc;
+        }
+
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .contact-intro h2 {
+            margin: 0 0 12px;
+            font-size: clamp(1.7rem, 3vw, 2.15rem);
+            line-height: 1.25;
+        }
+
+        .contact-intro p {
+            margin: 0 0 16px;
+            color: var(--muted);
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 15px;
+            padding: 24px;
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            background: var(--white);
+        }
+
+        .form-field {
+            display: grid;
+            gap: 6px;
+        }
+
+        .form-field label {
+            font-size: 0.92rem;
+            font-weight: 700;
+        }
+
+        .form-field input,
+        .form-field textarea {
+            width: 100%;
+            min-height: 44px;
+            padding: 10px 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 7px;
+            color: var(--ink);
+            background: var(--white);
+        }
+
+        .form-field textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-field input:focus,
+        .form-field textarea:focus {
+            border-color: var(--blue);
+            outline: 3px solid rgba(37, 99, 235, 0.15);
+        }
+
+        .form-note,
+        .form-status {
+            margin: 0;
+            color: var(--muted);
+            font-size: 0.85rem;
+        }
+
+        .form-status:not(:empty) {
+            padding: 10px 12px;
+            border-radius: 7px;
+            color: #14532d;
+            background: #f0fdf4;
+        }
+
+        .site-footer {
+            padding-block: 22px;
+            color: #cbd5e1;
+            background: #172554;
+            font-size: 0.9rem;
+        }
+
+        .footer-wrap {
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .site-footer p {
+            margin: 0;
+        }
+
+        .site-footer a {
+            color: var(--white);
+        }
+
+        @media (max-width: 760px) {
+            .nav-wrap {
+                min-height: 68px;
+                flex-wrap: wrap;
+                gap: 0;
+                padding-block: 12px;
+            }
+
+            .nav-toggle {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .nav-links {
+                display: none;
+                width: 100%;
+                align-items: stretch;
+                flex-direction: column;
+                gap: 4px;
+                padding: 14px 0 4px;
+            }
+
+            .nav-links.is-open {
+                display: flex;
+            }
+
+            .nav-links > a:not(.button) {
+                padding: 9px 4px;
+            }
+
+            .nav-links .button {
+                width: 100%;
+                margin-top: 5px;
+            }
+
+            .hero-grid {
+                min-height: 0;
+                grid-template-columns: 1fr;
+                gap: 35px;
+                padding-block: 55px;
+            }
+
+            .hero-card {
+                min-height: 250px;
+            }
+
+            .hero-symbol {
+                width: 125px;
+                height: 125px;
+                font-size: 4.4rem;
+            }
+
+            section.content-section {
+                padding-block: 55px;
+            }
+
+            .feature-grid,
+            .service-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .about-list {
+                grid-template-columns: 1fr;
+                gap: 17px;
+            }
+
+            .contact-layout {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .container {
+                width: min(100% - 30px, var(--page-width));
+            }
+
+            .brand {
+                font-size: 1rem;
+            }
+
+            .brand-mark {
+                width: 34px;
+                height: 34px;
+            }
+
+            .nav-toggle {
+                padding: 7px 9px;
+                font-size: 0.9rem;
+            }
+
+            .hero-grid {
+                padding-block: 42px;
+            }
+
+            .hero h1 {
+                font-size: clamp(2.35rem, 12vw, 3.25rem);
+            }
+
+            .hero-actions {
+                align-items: stretch;
+                flex-direction: column;
+            }
+
+            .feature-grid,
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .card {
+                padding: 21px;
+            }
+
+            .contact-form {
+                padding: 18px;
+            }
+
+            .footer-wrap {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
 </head>
 <body>
-    
-  <nav>
-    <div class="log">
-        <!-- logo for the hospital -->
-         <i class="fa-solid fa-square-plus"></i>
-         <h1>CarePoint Hospital</h1>
-    </div>
-
-    <!-- links for navigation -->
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="services.html">Services</a>
-      <a href="contact.html">Contact</a>
-      
-    <!--Buttons for login and register -->
-        <button id="login"><a href="login.html">Login</a></button>
-
-        <button id="Register"><a href="Register.html">Register</a></button>
-    
-    </div>
-  </nav>
-  
-  <main>
-    <Aside>
-       <h3>YOUR HEALTH , OUR PRIORITY</h3>
-       <h1>Healthcare made <br> easier.</h1>
-       <span>Book your hospital appointment online,<br> choose a suitable time, and plan your visit.</span>
-       <button><a href="/BookAppointment.html">Book An Appointment<i class="fa-solid fa-angle-right"></i></a></button><br>
-       <span class="note2">Already have an account? <a href="login.html">Login</a></span>
-    </Aside>
-    
-    <section>
-  
-  
-        <i class="fa-solid fa-circle"></i>
-        <i class="fa-solid fa-square-plus"></i>
-        <p>Your care starts here</p>
-    </section>
-  </main>
-  
-  <footer>
-    <h1>How can we help you?</h1>
-    <p>Simple steps to organise your hospital visit.</p>
-    <div class="opp">
-        <div class="Book">
-          <span>CALL</span>
-          <h2>Book a Visit</h2>
-          <a href="#">Choose a Date and time.</a>
+    <header class="site-header">
+        <div class="container nav-wrap">
+            <a class="brand" href="#home" aria-label="CarePoint Hospital home">
+                <span class="brand-mark" aria-hidden="true">+</span>
+                <span>CarePoint Hospital</span>
+            </a>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">
+                <span aria-hidden="true">☰</span>
+                <span>Menu</span>
+            </button>
+            <nav class="nav-links" id="primary-navigation" aria-label="Main navigation">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#contact">Contact us</a>
+                <a class="button button-outline" href="Login.html">Login</a>
+                <a class="button" href="BookAppointment.html">Book an appointment</a>
+            </nav>
         </div>
-        <div class="Manage">
-            <span>LIST</span>
-            <h2>Manage Bookings</h2>
-            <a href="#">View your appointments.</a>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="container hero-grid">
+                <div>
+                    <p class="eyebrow">YOUR HEALTH, OUR PRIORITY</p>
+                    <h1>Healthcare made easier.</h1>
+                    <p class="hero-copy">Book your hospital appointment online, choose a suitable time, and plan your visit with confidence.</p>
+                    <div class="hero-actions">
+                        <a class="button" href="BookAppointment.html">Book an appointment <span aria-hidden="true">&nbsp;→</span></a>
+                        <a class="button button-outline" href="#services">Explore our services</a>
+                    </div>
+                    <p class="login-note">Already have an account? <a href="Login.html">Log in</a></p>
+                </div>
+                <div class="hero-card" aria-label="Your care starts here">
+                    <div>
+                        <div class="hero-symbol" aria-hidden="true">+</div>
+                        <p>Your care starts here</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" aria-labelledby="help-heading">
+            <div class="container">
+                <div class="section-heading">
+                    <h2 id="help-heading">How can we help you?</h2>
+                    <p>Simple steps to organise your hospital visit.</p>
+                </div>
+                <div class="feature-grid">
+                    <article class="card">
+                        <span class="card-label">BOOK</span>
+                        <h3>Book a visit</h3>
+                        <p>Choose an appointment date and time that works for you.</p>
+                        <a class="card-link" href="BookAppointment.html">Start booking <span aria-hidden="true">→</span></a>
+                    </article>
+                    <article class="card">
+                        <span class="card-label">MANAGE</span>
+                        <h3>Manage appointments</h3>
+                        <p>Find your appointment details and keep your visit organised.</p>
+                        <a class="card-link" href="MyAppointment.html">View appointments <span aria-hidden="true">→</span></a>
+                    </article>
+                    <article class="card">
+                        <span class="card-label">CARE</span>
+                        <h3>Privacy first</h3>
+                        <p>Your health information deserves care and confidentiality.</p>
+                        <a class="card-link" href="#about">About our approach <span aria-hidden="true">→</span></a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section services-section" id="services" aria-labelledby="services-heading">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">CARE THAT FITS YOUR NEEDS</p>
+                    <h2 id="services-heading">Our services</h2>
+                    <p>Explore the care options available through CarePoint Hospital.</p>
+                </div>
+                <div class="service-grid">
+                    <article class="card">
+                        <span class="service-number" aria-hidden="true">01</span>
+                        <h3>General consultations</h3>
+                        <p>Meet with a healthcare professional to discuss your health concerns and next steps.</p>
+                        <a class="card-link" href="BookAppointment.html">Book a visit <span aria-hidden="true">→</span></a>
+                    </article>
+                    <article class="card">
+                        <span class="service-number" aria-hidden="true">02</span>
+                        <h3>Preventive care</h3>
+                        <p>Arrange a visit focused on routine check-ups and supporting your wellbeing.</p>
+                        <a class="card-link" href="BookAppointment.html">Book a visit <span aria-hidden="true">→</span></a>
+                    </article>
+                    <article class="card">
+                        <span class="service-number" aria-hidden="true">03</span>
+                        <h3>Specialist appointments</h3>
+                        <p>Use the booking page to request an appointment for the service you need.</p>
+                        <a class="card-link" href="BookAppointment.html">Book a visit <span aria-hidden="true">→</span></a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" id="about" aria-labelledby="about-heading">
+            <div class="container">
+                <div class="about-panel">
+                    <p class="eyebrow">ABOUT CAREPOINT</p>
+                    <h2 id="about-heading">Welcome to the CarePoint Hospital booking portal</h2>
+                    <p>Our online booking system is designed to give patients more control over their healthcare journey. Plan a visit online and manage appointment details without needing to call the reception desk.</p>
+                    <ul class="about-list">
+                        <li>
+                            <h3>Flexible scheduling</h3>
+                            <p>Choose a date and time that fits your schedule using the appointment page.</p>
+                        </li>
+                        <li>
+                            <h3>Clear appointment details</h3>
+                            <p>Keep the information about your planned visit easy to find.</p>
+                        </li>
+                        <li>
+                            <h3>Easy management</h3>
+                            <p>Use the appointment pages to organise your upcoming hospital visit.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section contact-section" id="contact" aria-labelledby="contact-heading">
+            <div class="container contact-layout">
+                <div class="contact-intro">
+                    <p class="eyebrow">WE'RE HERE TO HELP</p>
+                    <h2 id="contact-heading">Contact us</h2>
+                    <p>Have a question about planning a visit? Send a message using the form. For appointments, you can also go straight to online booking.</p>
+                    <a class="button" href="BookAppointment.html">Go to appointment booking</a>
+                </div>
+                <form class="contact-form" id="contact-form">
+                    <div class="form-field">
+                        <label for="contact-name">Your name</label>
+                        <input id="contact-name" name="name" type="text" autocomplete="name" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="contact-email">Email address</label>
+                        <input id="contact-email" name="email" type="email" autocomplete="email" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="contact-message">Message</label>
+                        <textarea id="contact-message" name="message" rows="5" required></textarea>
+                    </div>
+                    <p class="form-note">This demo form does not send or store messages.</p>
+                    <button class="button" type="submit">Send message</button>
+                    <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-wrap">
+            <p>&copy; <span id="current-year"></span> CarePoint Hospital</p>
+            <p>Patient care, made easier. <a href="#home">Back to top</a></p>
         </div>
-        <div class="priva">
-            <span>SAFE</span>
-            <h2>Privacy First</h2>
-            <a href="#">Your information matters</a>
+    </footer>
 
-        </div>
-    </div>
-    <div class="contact">
+    <script>
+        const navToggle = document.querySelector(".nav-toggle");
+        const navigation = document.querySelector("#primary-navigation");
 
-    </div>
-  </footer>
+        navToggle.addEventListener("click", () => {
+            const isExpanded = navToggle.getAttribute("aria-expanded") === "true";
+            navToggle.setAttribute("aria-expanded", String(!isExpanded));
+            navigation.classList.toggle("is-open", !isExpanded);
+        });
 
-<style>
-    *{
-        margin: 0;
-        padding: 0;
-        font-family:'poppins', sans-serif;
-    }
-    body{
-        background:white;
-    }
-    nav{
-        display: flex;
-        justify-content: space-between;
-        background: #F8FAFC;
-        padding: 10px 20px;
-    }
-    .log{
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        margin-top: 20px;
-    }
-    .fa-square-plus{
-        color:#2563EB;
-        font-size: 40px;
-    }
-    .nav-links{
-        display:flex;
-        justify-content: space-between;
-        gap: 20px;
-        left: 20px;
-        margin-top: 20px;
-    }
-    .nav-links button{
-        left: 120px;
-        height: 30px;
-        
+        navigation.addEventListener("click", (event) => {
+            if (event.target.closest("a")) {
+                navToggle.setAttribute("aria-expanded", "false");
+                navigation.classList.remove("is-open");
+            }
+        });
 
-    }
-    
-    .nav-links a{
-        color:#64748B;
-        text-decoration: none;
-        gap: 20px;
-        
-    }
-    .nav-links a:hover{
-        color:#2563EB;
-        text-decoration: underline;
-    }
-    button a{
-        text-decoration: none;
-        color: black;
-    }
-    #login a{
-        color: #2563EB;
-        font-weight: bold;
-        text-decoration: none;
-    }
-    
-    button#login{
-        border: 2px solid #2563EB;
-        border-radius: 5px;
-        padding: 5px 10px;
-    
-    }    
-    button#login:hover{
-        background:rgba(0,0,100,0.9);
-        a{
-            color: white;
-        }
-        border:none;
-    }
-    button#Register{
-        background: #2563EB;
-        font-weight: bold;
-        border:none;
-        border-radius: 5px;
-        padding: 5px 10px;
-        
-    }
-    button#Register:hover{
-        background:rgba(0,0,100,0.9);
-    }
-    #Register a{
-        color: white;
-        text-decoration: none;
-    }
-    main{
-        background:#EFF6FF;
-        display:grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
-    }
-    Aside{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        gap: 10px;
-        align-self: center;
-        padding: 20px;
+        document.querySelector("#current-year").textContent = new Date().getFullYear();
 
-        h3{
-            color:#2563EB;
-            margin-top:50px;
-            font-size: 0.9rem;
-            margin-left:70px;
-        }
-        h1{
-            margin-left: 70px;
-            margin-top: 10px;
-        }
-        span{
-            color:#64748B;
-            margin-left: 70px;
-            margin-top: 10px;
-        }
-        button{
-            cursor: pointer;
-            display:center;
-            margin-left: 70px;
-            background: #2563EB;
-            border:none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            margin-top: 10px;
-            
-        }
-        button:hover{
-            background:rgba(0,0,100,0.9);
-        }
-        button a{
-            font-weight: bold;
-            color: white;
-            text-decoration: none;
-            
-        }
-        span.note2{
-            margin-top: 1px;
-            margin-left: 70px;
-            color:#2563EB;
-        }
-        span.note2 a{
-            cursor: pointer;
-        }
-    }
-    section{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background:#DBEAFE;
-        margin: 10px 100px;
-        padding: 6px;
-        border-radius:12px;
-        position: relative;
-
-        .fa-circle{
-            color:white;
-            font-size: 8rem;
-            position:relative;
-            z-index: 8;
-            top:-30px;
-            padding: 10px;
-        }
-        .fa-square-plus{
-            position: absolute;
-            font-size: 8rem;
-            z-index: 9;
-            margin-top: 120px;
-            top:-5px;
-            padding: 10px;
-
-        }
-        p{
-            padding:10px;
-            margin-top: 20px;
-            position: absolute;
-            margin-top: 250px;
-            font-size: 1.5rem;
-            color:blue;
-            bottom:1px;
-            font-weight: bold;
-        }
-
-        
-    }
-    footer{
-        h2{
-            font-size: 1.2rem;
-        }
-        a{
-            color:#64748B;
-        }
-        a:hover{
-            color:#2563EB;
-        }
-        h1{
-            text-align: center;
-            margin-top: 20px;
-            font-size: 1.2rem;
-        }
-        p{
-            text-align: center;
-            margin-top: 10px;
-            color:#64748B;
-            font-size: 0.9rem;
-        }
-        span{
-             
-            padding: 10px;
-            display:block;
-            flex-direction: column;
-            justify-content: center;
-            color:#2563EB;
-            font-weight: bold;
-            font-size:0.8rem;
-        }
-        .opp{
-            display:grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            padding: 20px;
-            gap: 10px;
-        
-        }
-        .Book{
-            border:2px solid #E2E8F0;
-            display: flex;
-            flex-direction: column;
-            text-align: center;
-            border-radius: 10px;
-            padding: 10px;
-            box-shadow: 0px 5px 10px rgba(0,0,0,0.6);
-            
-        }
-        .Book:hover ,.Manage:hover , .priva:hover{
-            background:#DBEAFE;
-        }
-        .Manage{
-             border:2px solid #E2E8F0;
-             display: flex;
-            flex-direction: column;
-            text-align: center;
-            border-radius: 10px;
-            padding: 10px;
-            box-shadow: 0px 5px 10px rgba(0,0,0,0.6);
-
-        }
-        .priva{
-             border:2px solid #E2E8F0;
-             display: flex;
-            flex-direction: column;
-            text-align: center;
-            border-radius: 10px;
-            padding: 10px;
-            box-shadow: 0px 5px 10px rgba(0,0,0,0.6);
-             
-        }
-    }
-
-</style>
-    
+        document.querySelector("#contact-form").addEventListener("submit", (event) => {
+            event.preventDefault();
+            const name = document.querySelector("#contact-name").value.trim();
+            document.querySelector("#form-status").textContent =
+                `Thanks, ${name}. This demo form is not connected to a messaging service, so your message was not sent.`;
+        });
+    </script>
 </body>
 </html>
